@@ -1,4 +1,4 @@
-module github.com/Hateisu/ServicesProto v0.0.1
+module github.com/Hateisu/ServicesProto
 
 go 1.21.5
 
