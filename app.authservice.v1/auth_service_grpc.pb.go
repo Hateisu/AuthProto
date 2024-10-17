@@ -19,21 +19,22 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AuthService_PermissionCreate_FullMethodName = "/authservice.AuthService/PermissionCreate"
-	AuthService_PermissionRead_FullMethodName   = "/authservice.AuthService/PermissionRead"
-	AuthService_PermissionUpdate_FullMethodName = "/authservice.AuthService/PermissionUpdate"
-	AuthService_PermissionDelete_FullMethodName = "/authservice.AuthService/PermissionDelete"
-	AuthService_RoleCreate_FullMethodName       = "/authservice.AuthService/RoleCreate"
-	AuthService_RoleRead_FullMethodName         = "/authservice.AuthService/RoleRead"
-	AuthService_RoleUpdate_FullMethodName       = "/authservice.AuthService/RoleUpdate"
-	AuthService_RoleDelete_FullMethodName       = "/authservice.AuthService/RoleDelete"
-	AuthService_UserRegister_FullMethodName     = "/authservice.AuthService/UserRegister"
-	AuthService_UserRead_FullMethodName         = "/authservice.AuthService/UserRead"
-	AuthService_UserUpdate_FullMethodName       = "/authservice.AuthService/UserUpdate"
-	AuthService_UserDelete_FullMethodName       = "/authservice.AuthService/UserDelete"
-	AuthService_Login_FullMethodName            = "/authservice.AuthService/Login"
-	AuthService_Logout_FullMethodName           = "/authservice.AuthService/Logout"
-	AuthService_ValidateToken_FullMethodName    = "/authservice.AuthService/ValidateToken"
+	AuthService_PermissionCreate_FullMethodName   = "/authservice.AuthService/PermissionCreate"
+	AuthService_PermissionRead_FullMethodName     = "/authservice.AuthService/PermissionRead"
+	AuthService_PermissionUpdate_FullMethodName   = "/authservice.AuthService/PermissionUpdate"
+	AuthService_PermissionDelete_FullMethodName   = "/authservice.AuthService/PermissionDelete"
+	AuthService_RoleCreate_FullMethodName         = "/authservice.AuthService/RoleCreate"
+	AuthService_RoleRead_FullMethodName           = "/authservice.AuthService/RoleRead"
+	AuthService_RoleUpdate_FullMethodName         = "/authservice.AuthService/RoleUpdate"
+	AuthService_RoleDelete_FullMethodName         = "/authservice.AuthService/RoleDelete"
+	AuthService_UserRegister_FullMethodName       = "/authservice.AuthService/UserRegister"
+	AuthService_UserRead_FullMethodName           = "/authservice.AuthService/UserRead"
+	AuthService_UserUpdate_FullMethodName         = "/authservice.AuthService/UserUpdate"
+	AuthService_UserDelete_FullMethodName         = "/authservice.AuthService/UserDelete"
+	AuthService_Login_FullMethodName              = "/authservice.AuthService/Login"
+	AuthService_Logout_FullMethodName             = "/authservice.AuthService/Logout"
+	AuthService_ValidateToken_FullMethodName      = "/authservice.AuthService/ValidateToken"
+	AuthService_GetRSA256PublicKey_FullMethodName = "/authservice.AuthService/GetRSA256PublicKey"
 )
 
 // AuthServiceClient is the client API for AuthService service.
@@ -63,6 +64,7 @@ type AuthServiceClient interface {
 	Logout(ctx context.Context, in *UserLogoutRequest, opts ...grpc.CallOption) (*UserLogoutResponse, error)
 	// ValidateToken validates a user's auth token.
 	ValidateToken(ctx context.Context, in *ValidateTokenRequest, opts ...grpc.CallOption) (*ValidateTokenResponse, error)
+	GetRSA256PublicKey(ctx context.Context, in *ValidateTokenRequest, opts ...grpc.CallOption) (*ValidateTokenResponse, error)
 }
 
 type authServiceClient struct {
@@ -223,6 +225,16 @@ func (c *authServiceClient) ValidateToken(ctx context.Context, in *ValidateToken
 	return out, nil
 }
 
+func (c *authServiceClient) GetRSA256PublicKey(ctx context.Context, in *ValidateTokenRequest, opts ...grpc.CallOption) (*ValidateTokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ValidateTokenResponse)
+	err := c.cc.Invoke(ctx, AuthService_GetRSA256PublicKey_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AuthServiceServer is the server API for AuthService service.
 // All implementations must embed UnimplementedAuthServiceServer
 // for forward compatibility.
@@ -250,6 +262,7 @@ type AuthServiceServer interface {
 	Logout(context.Context, *UserLogoutRequest) (*UserLogoutResponse, error)
 	// ValidateToken validates a user's auth token.
 	ValidateToken(context.Context, *ValidateTokenRequest) (*ValidateTokenResponse, error)
+	GetRSA256PublicKey(context.Context, *ValidateTokenRequest) (*ValidateTokenResponse, error)
 	mustEmbedUnimplementedAuthServiceServer()
 }
 
@@ -304,6 +317,9 @@ func (UnimplementedAuthServiceServer) Logout(context.Context, *UserLogoutRequest
 }
 func (UnimplementedAuthServiceServer) ValidateToken(context.Context, *ValidateTokenRequest) (*ValidateTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ValidateToken not implemented")
+}
+func (UnimplementedAuthServiceServer) GetRSA256PublicKey(context.Context, *ValidateTokenRequest) (*ValidateTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRSA256PublicKey not implemented")
 }
 func (UnimplementedAuthServiceServer) mustEmbedUnimplementedAuthServiceServer() {}
 func (UnimplementedAuthServiceServer) testEmbeddedByValue()                     {}
@@ -596,6 +612,24 @@ func _AuthService_ValidateToken_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AuthService_GetRSA256PublicKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValidateTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServiceServer).GetRSA256PublicKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthService_GetRSA256PublicKey_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServiceServer).GetRSA256PublicKey(ctx, req.(*ValidateTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // AuthService_ServiceDesc is the grpc.ServiceDesc for AuthService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -662,6 +696,10 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ValidateToken",
 			Handler:    _AuthService_ValidateToken_Handler,
+		},
+		{
+			MethodName: "GetRSA256PublicKey",
+			Handler:    _AuthService_GetRSA256PublicKey_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

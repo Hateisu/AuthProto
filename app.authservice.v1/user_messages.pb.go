@@ -656,6 +656,87 @@ func (x *ValidateTokenResponse) GetValid() bool {
 	return false
 }
 
+type RSA256PublicKeyRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *RSA256PublicKeyRequest) Reset() {
+	*x = RSA256PublicKeyRequest{}
+	mi := &file_user_messages_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RSA256PublicKeyRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RSA256PublicKeyRequest) ProtoMessage() {}
+
+func (x *RSA256PublicKeyRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_user_messages_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RSA256PublicKeyRequest.ProtoReflect.Descriptor instead.
+func (*RSA256PublicKeyRequest) Descriptor() ([]byte, []int) {
+	return file_user_messages_proto_rawDescGZIP(), []int{14}
+}
+
+type RSA256PublicKeyResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PublicKey string `protobuf:"bytes,1,opt,name=public_key,json=publicKey,proto3" json:"public_key,omitempty"`
+}
+
+func (x *RSA256PublicKeyResponse) Reset() {
+	*x = RSA256PublicKeyResponse{}
+	mi := &file_user_messages_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RSA256PublicKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RSA256PublicKeyResponse) ProtoMessage() {}
+
+func (x *RSA256PublicKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_user_messages_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RSA256PublicKeyResponse.ProtoReflect.Descriptor instead.
+func (*RSA256PublicKeyResponse) Descriptor() ([]byte, []int) {
+	return file_user_messages_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *RSA256PublicKeyResponse) GetPublicKey() string {
+	if x != nil {
+		return x.PublicKey
+	}
+	return ""
+}
+
 var File_user_messages_proto protoreflect.FileDescriptor
 
 var file_user_messages_proto_rawDesc = []byte{
@@ -709,10 +790,15 @@ var file_user_messages_proto_rawDesc = []byte{
 	0x1d, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x73,
 	0x65, 0x72, 0x52, 0x65, 0x61, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x04,
 	0x75, 0x73, 0x65, 0x72, 0x12, 0x14, 0x0a, 0x05, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x42, 0x22, 0x5a, 0x20, 0x61, 0x70,
-	0x70, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x76, 0x31,
-	0x3b, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x76, 0x31, 0x62, 0x06,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x01, 0x28, 0x08, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x22, 0x18, 0x0a, 0x16, 0x52, 0x53,
+	0x41, 0x32, 0x35, 0x36, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x4b, 0x65, 0x79, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x22, 0x38, 0x0a, 0x17, 0x52, 0x53, 0x41, 0x32, 0x35, 0x36, 0x50, 0x75,
+	0x62, 0x6c, 0x69, 0x63, 0x4b, 0x65, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x1d, 0x0a, 0x0a, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x5f, 0x6b, 0x65, 0x79, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x09, 0x70, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x4b, 0x65, 0x79, 0x42, 0x22,
+	0x5a, 0x20, 0x61, 0x70, 0x70, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x2e, 0x76, 0x31, 0x3b, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -727,31 +813,33 @@ func file_user_messages_proto_rawDescGZIP() []byte {
 	return file_user_messages_proto_rawDescData
 }
 
-var file_user_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
+var file_user_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
 var file_user_messages_proto_goTypes = []any{
-	(*UserCreateRequest)(nil),     // 0: authservice.UserCreateRequest
-	(*UserCreateResponse)(nil),    // 1: authservice.UserCreateResponse
-	(*UserReadRequest)(nil),       // 2: authservice.UserReadRequest
-	(*UserReadResponse)(nil),      // 3: authservice.UserReadResponse
-	(*UserUpdateRequest)(nil),     // 4: authservice.UserUpdateRequest
-	(*UserUpdateResponse)(nil),    // 5: authservice.UserUpdateResponse
-	(*UserDeleteRequest)(nil),     // 6: authservice.UserDeleteRequest
-	(*UserDeleteResponse)(nil),    // 7: authservice.UserDeleteResponse
-	(*UserLoginRequest)(nil),      // 8: authservice.UserLoginRequest
-	(*UserLoginResponse)(nil),     // 9: authservice.UserLoginResponse
-	(*UserLogoutRequest)(nil),     // 10: authservice.UserLogoutRequest
-	(*UserLogoutResponse)(nil),    // 11: authservice.UserLogoutResponse
-	(*ValidateTokenRequest)(nil),  // 12: authservice.ValidateTokenRequest
-	(*ValidateTokenResponse)(nil), // 13: authservice.ValidateTokenResponse
-	(*User)(nil),                  // 14: authservice.User
-	(*UUID)(nil),                  // 15: authservice.UUID
+	(*UserCreateRequest)(nil),       // 0: authservice.UserCreateRequest
+	(*UserCreateResponse)(nil),      // 1: authservice.UserCreateResponse
+	(*UserReadRequest)(nil),         // 2: authservice.UserReadRequest
+	(*UserReadResponse)(nil),        // 3: authservice.UserReadResponse
+	(*UserUpdateRequest)(nil),       // 4: authservice.UserUpdateRequest
+	(*UserUpdateResponse)(nil),      // 5: authservice.UserUpdateResponse
+	(*UserDeleteRequest)(nil),       // 6: authservice.UserDeleteRequest
+	(*UserDeleteResponse)(nil),      // 7: authservice.UserDeleteResponse
+	(*UserLoginRequest)(nil),        // 8: authservice.UserLoginRequest
+	(*UserLoginResponse)(nil),       // 9: authservice.UserLoginResponse
+	(*UserLogoutRequest)(nil),       // 10: authservice.UserLogoutRequest
+	(*UserLogoutResponse)(nil),      // 11: authservice.UserLogoutResponse
+	(*ValidateTokenRequest)(nil),    // 12: authservice.ValidateTokenRequest
+	(*ValidateTokenResponse)(nil),   // 13: authservice.ValidateTokenResponse
+	(*RSA256PublicKeyRequest)(nil),  // 14: authservice.RSA256PublicKeyRequest
+	(*RSA256PublicKeyResponse)(nil), // 15: authservice.RSA256PublicKeyResponse
+	(*User)(nil),                    // 16: authservice.User
+	(*UUID)(nil),                    // 17: authservice.UUID
 }
 var file_user_messages_proto_depIdxs = []int32{
-	14, // 0: authservice.UserCreateRequest.user:type_name -> authservice.User
-	15, // 1: authservice.UserCreateResponse.uuid:type_name -> authservice.UUID
-	14, // 2: authservice.UserReadResponse.user:type_name -> authservice.User
-	14, // 3: authservice.UserUpdateRequest.user:type_name -> authservice.User
-	15, // 4: authservice.UserUpdateResponse.uuid:type_name -> authservice.UUID
+	16, // 0: authservice.UserCreateRequest.user:type_name -> authservice.User
+	17, // 1: authservice.UserCreateResponse.uuid:type_name -> authservice.UUID
+	16, // 2: authservice.UserReadResponse.user:type_name -> authservice.User
+	16, // 3: authservice.UserUpdateRequest.user:type_name -> authservice.User
+	17, // 4: authservice.UserUpdateResponse.uuid:type_name -> authservice.UUID
 	3,  // 5: authservice.ValidateTokenResponse.user:type_name -> authservice.UserReadResponse
 	6,  // [6:6] is the sub-list for method output_type
 	6,  // [6:6] is the sub-list for method input_type
@@ -772,7 +860,7 @@ func file_user_messages_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_user_messages_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   14,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
