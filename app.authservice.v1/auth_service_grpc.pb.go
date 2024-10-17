@@ -64,7 +64,7 @@ type AuthServiceClient interface {
 	Logout(ctx context.Context, in *UserLogoutRequest, opts ...grpc.CallOption) (*UserLogoutResponse, error)
 	// ValidateToken validates a user's auth token.
 	ValidateToken(ctx context.Context, in *ValidateTokenRequest, opts ...grpc.CallOption) (*ValidateTokenResponse, error)
-	GetRSA256PublicKey(ctx context.Context, in *ValidateTokenRequest, opts ...grpc.CallOption) (*ValidateTokenResponse, error)
+	GetRSA256PublicKey(ctx context.Context, in *RSA256PublicKeyRequest, opts ...grpc.CallOption) (*RSA256PublicKeyResponse, error)
 }
 
 type authServiceClient struct {
@@ -225,9 +225,9 @@ func (c *authServiceClient) ValidateToken(ctx context.Context, in *ValidateToken
 	return out, nil
 }
 
-func (c *authServiceClient) GetRSA256PublicKey(ctx context.Context, in *ValidateTokenRequest, opts ...grpc.CallOption) (*ValidateTokenResponse, error) {
+func (c *authServiceClient) GetRSA256PublicKey(ctx context.Context, in *RSA256PublicKeyRequest, opts ...grpc.CallOption) (*RSA256PublicKeyResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ValidateTokenResponse)
+	out := new(RSA256PublicKeyResponse)
 	err := c.cc.Invoke(ctx, AuthService_GetRSA256PublicKey_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -262,7 +262,7 @@ type AuthServiceServer interface {
 	Logout(context.Context, *UserLogoutRequest) (*UserLogoutResponse, error)
 	// ValidateToken validates a user's auth token.
 	ValidateToken(context.Context, *ValidateTokenRequest) (*ValidateTokenResponse, error)
-	GetRSA256PublicKey(context.Context, *ValidateTokenRequest) (*ValidateTokenResponse, error)
+	GetRSA256PublicKey(context.Context, *RSA256PublicKeyRequest) (*RSA256PublicKeyResponse, error)
 	mustEmbedUnimplementedAuthServiceServer()
 }
 
@@ -318,7 +318,7 @@ func (UnimplementedAuthServiceServer) Logout(context.Context, *UserLogoutRequest
 func (UnimplementedAuthServiceServer) ValidateToken(context.Context, *ValidateTokenRequest) (*ValidateTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ValidateToken not implemented")
 }
-func (UnimplementedAuthServiceServer) GetRSA256PublicKey(context.Context, *ValidateTokenRequest) (*ValidateTokenResponse, error) {
+func (UnimplementedAuthServiceServer) GetRSA256PublicKey(context.Context, *RSA256PublicKeyRequest) (*RSA256PublicKeyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRSA256PublicKey not implemented")
 }
 func (UnimplementedAuthServiceServer) mustEmbedUnimplementedAuthServiceServer() {}
@@ -613,7 +613,7 @@ func _AuthService_ValidateToken_Handler(srv interface{}, ctx context.Context, de
 }
 
 func _AuthService_GetRSA256PublicKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValidateTokenRequest)
+	in := new(RSA256PublicKeyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -625,7 +625,7 @@ func _AuthService_GetRSA256PublicKey_Handler(srv interface{}, ctx context.Contex
 		FullMethod: AuthService_GetRSA256PublicKey_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).GetRSA256PublicKey(ctx, req.(*ValidateTokenRequest))
+		return srv.(AuthServiceServer).GetRSA256PublicKey(ctx, req.(*RSA256PublicKeyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
