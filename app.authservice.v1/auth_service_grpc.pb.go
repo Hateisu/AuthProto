@@ -19,23 +19,28 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AuthService_PermissionCreate_FullMethodName   = "/authservice.AuthService/PermissionCreate"
-	AuthService_PermissionRead_FullMethodName     = "/authservice.AuthService/PermissionRead"
-	AuthService_PermissionUpdate_FullMethodName   = "/authservice.AuthService/PermissionUpdate"
-	AuthService_PermissionDelete_FullMethodName   = "/authservice.AuthService/PermissionDelete"
-	AuthService_RoleCreate_FullMethodName         = "/authservice.AuthService/RoleCreate"
-	AuthService_RoleRead_FullMethodName           = "/authservice.AuthService/RoleRead"
-	AuthService_RoleUpdate_FullMethodName         = "/authservice.AuthService/RoleUpdate"
-	AuthService_RoleDelete_FullMethodName         = "/authservice.AuthService/RoleDelete"
-	AuthService_UserRegister_FullMethodName       = "/authservice.AuthService/UserRegister"
-	AuthService_UserRead_FullMethodName           = "/authservice.AuthService/UserRead"
-	AuthService_UserUpdate_FullMethodName         = "/authservice.AuthService/UserUpdate"
-	AuthService_UserDelete_FullMethodName         = "/authservice.AuthService/UserDelete"
-	AuthService_Login_FullMethodName              = "/authservice.AuthService/Login"
-	AuthService_Logout_FullMethodName             = "/authservice.AuthService/Logout"
-	AuthService_ValidateToken_FullMethodName      = "/authservice.AuthService/ValidateToken"
-	AuthService_GetRSA256PublicKey_FullMethodName = "/authservice.AuthService/GetRSA256PublicKey"
-	AuthService_RefreshToken_FullMethodName       = "/authservice.AuthService/RefreshToken"
+	AuthService_PermissionCreate_FullMethodName     = "/authservice.AuthService/PermissionCreate"
+	AuthService_PermissionRead_FullMethodName       = "/authservice.AuthService/PermissionRead"
+	AuthService_PermissionUpdate_FullMethodName     = "/authservice.AuthService/PermissionUpdate"
+	AuthService_PermissionDelete_FullMethodName     = "/authservice.AuthService/PermissionDelete"
+	AuthService_RoleCreate_FullMethodName           = "/authservice.AuthService/RoleCreate"
+	AuthService_RoleRead_FullMethodName             = "/authservice.AuthService/RoleRead"
+	AuthService_RoleUpdate_FullMethodName           = "/authservice.AuthService/RoleUpdate"
+	AuthService_RoleDelete_FullMethodName           = "/authservice.AuthService/RoleDelete"
+	AuthService_SelfUserRegister_FullMethodName     = "/authservice.AuthService/SelfUserRegister"
+	AuthService_SelfUserRead_FullMethodName         = "/authservice.AuthService/SelfUserRead"
+	AuthService_SelfUserUpdate_FullMethodName       = "/authservice.AuthService/SelfUserUpdate"
+	AuthService_SelfUserDelete_FullMethodName       = "/authservice.AuthService/SelfUserDelete"
+	AuthService_UserRegister_FullMethodName         = "/authservice.AuthService/UserRegister"
+	AuthService_UserRead_FullMethodName             = "/authservice.AuthService/UserRead"
+	AuthService_UserUpdateByUUID_FullMethodName     = "/authservice.AuthService/UserUpdateByUUID"
+	AuthService_UserUpdateByUsername_FullMethodName = "/authservice.AuthService/UserUpdateByUsername"
+	AuthService_UserDelete_FullMethodName           = "/authservice.AuthService/UserDelete"
+	AuthService_Login_FullMethodName                = "/authservice.AuthService/Login"
+	AuthService_Logout_FullMethodName               = "/authservice.AuthService/Logout"
+	AuthService_ValidateToken_FullMethodName        = "/authservice.AuthService/ValidateToken"
+	AuthService_GetRSA256PublicKey_FullMethodName   = "/authservice.AuthService/GetRSA256PublicKey"
+	AuthService_RefreshToken_FullMethodName         = "/authservice.AuthService/RefreshToken"
 )
 
 // AuthServiceClient is the client API for AuthService service.
@@ -55,9 +60,15 @@ type AuthServiceClient interface {
 	RoleUpdate(ctx context.Context, in *RoleUpdateRequest, opts ...grpc.CallOption) (*RoleUpdateResponse, error)
 	RoleDelete(ctx context.Context, in *RoleDeleteRequest, opts ...grpc.CallOption) (*RoleDeleteResponse, error)
 	// User messages
+	SelfUserRegister(ctx context.Context, in *SelfUserCreateRequest, opts ...grpc.CallOption) (*SelfUserCreateResponse, error)
+	SelfUserRead(ctx context.Context, in *SelfUserReadRequest, opts ...grpc.CallOption) (*SelfUserReadResponse, error)
+	SelfUserUpdate(ctx context.Context, in *SelfUserUpdateRequest, opts ...grpc.CallOption) (*SelfUserUpdateResponse, error)
+	SelfUserDelete(ctx context.Context, in *SelfUserDeleteRequest, opts ...grpc.CallOption) (*SelfUserDeleteResponse, error)
+	// User management
 	UserRegister(ctx context.Context, in *UserCreateRequest, opts ...grpc.CallOption) (*UserCreateResponse, error)
 	UserRead(ctx context.Context, in *UserReadRequest, opts ...grpc.CallOption) (*UserReadResponse, error)
-	UserUpdate(ctx context.Context, in *UserUpdateRequest, opts ...grpc.CallOption) (*UserUpdateResponse, error)
+	UserUpdateByUUID(ctx context.Context, in *UserUpdateByUUIDRequest, opts ...grpc.CallOption) (*UserUpdateResponse, error)
+	UserUpdateByUsername(ctx context.Context, in *UserUpdateByUsernameRequest, opts ...grpc.CallOption) (*UserUpdateResponse, error)
 	UserDelete(ctx context.Context, in *UserDeleteRequest, opts ...grpc.CallOption) (*UserDeleteResponse, error)
 	// Login logs in a user and returns an auth token.
 	Login(ctx context.Context, in *UserLoginRequest, opts ...grpc.CallOption) (*UserLoginResponse, error)
@@ -158,6 +169,46 @@ func (c *authServiceClient) RoleDelete(ctx context.Context, in *RoleDeleteReques
 	return out, nil
 }
 
+func (c *authServiceClient) SelfUserRegister(ctx context.Context, in *SelfUserCreateRequest, opts ...grpc.CallOption) (*SelfUserCreateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SelfUserCreateResponse)
+	err := c.cc.Invoke(ctx, AuthService_SelfUserRegister_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authServiceClient) SelfUserRead(ctx context.Context, in *SelfUserReadRequest, opts ...grpc.CallOption) (*SelfUserReadResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SelfUserReadResponse)
+	err := c.cc.Invoke(ctx, AuthService_SelfUserRead_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authServiceClient) SelfUserUpdate(ctx context.Context, in *SelfUserUpdateRequest, opts ...grpc.CallOption) (*SelfUserUpdateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SelfUserUpdateResponse)
+	err := c.cc.Invoke(ctx, AuthService_SelfUserUpdate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authServiceClient) SelfUserDelete(ctx context.Context, in *SelfUserDeleteRequest, opts ...grpc.CallOption) (*SelfUserDeleteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SelfUserDeleteResponse)
+	err := c.cc.Invoke(ctx, AuthService_SelfUserDelete_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *authServiceClient) UserRegister(ctx context.Context, in *UserCreateRequest, opts ...grpc.CallOption) (*UserCreateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UserCreateResponse)
@@ -178,10 +229,20 @@ func (c *authServiceClient) UserRead(ctx context.Context, in *UserReadRequest, o
 	return out, nil
 }
 
-func (c *authServiceClient) UserUpdate(ctx context.Context, in *UserUpdateRequest, opts ...grpc.CallOption) (*UserUpdateResponse, error) {
+func (c *authServiceClient) UserUpdateByUUID(ctx context.Context, in *UserUpdateByUUIDRequest, opts ...grpc.CallOption) (*UserUpdateResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(UserUpdateResponse)
-	err := c.cc.Invoke(ctx, AuthService_UserUpdate_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, AuthService_UserUpdateByUUID_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authServiceClient) UserUpdateByUsername(ctx context.Context, in *UserUpdateByUsernameRequest, opts ...grpc.CallOption) (*UserUpdateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UserUpdateResponse)
+	err := c.cc.Invoke(ctx, AuthService_UserUpdateByUsername_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -265,9 +326,15 @@ type AuthServiceServer interface {
 	RoleUpdate(context.Context, *RoleUpdateRequest) (*RoleUpdateResponse, error)
 	RoleDelete(context.Context, *RoleDeleteRequest) (*RoleDeleteResponse, error)
 	// User messages
+	SelfUserRegister(context.Context, *SelfUserCreateRequest) (*SelfUserCreateResponse, error)
+	SelfUserRead(context.Context, *SelfUserReadRequest) (*SelfUserReadResponse, error)
+	SelfUserUpdate(context.Context, *SelfUserUpdateRequest) (*SelfUserUpdateResponse, error)
+	SelfUserDelete(context.Context, *SelfUserDeleteRequest) (*SelfUserDeleteResponse, error)
+	// User management
 	UserRegister(context.Context, *UserCreateRequest) (*UserCreateResponse, error)
 	UserRead(context.Context, *UserReadRequest) (*UserReadResponse, error)
-	UserUpdate(context.Context, *UserUpdateRequest) (*UserUpdateResponse, error)
+	UserUpdateByUUID(context.Context, *UserUpdateByUUIDRequest) (*UserUpdateResponse, error)
+	UserUpdateByUsername(context.Context, *UserUpdateByUsernameRequest) (*UserUpdateResponse, error)
 	UserDelete(context.Context, *UserDeleteRequest) (*UserDeleteResponse, error)
 	// Login logs in a user and returns an auth token.
 	Login(context.Context, *UserLoginRequest) (*UserLoginResponse, error)
@@ -312,14 +379,29 @@ func (UnimplementedAuthServiceServer) RoleUpdate(context.Context, *RoleUpdateReq
 func (UnimplementedAuthServiceServer) RoleDelete(context.Context, *RoleDeleteRequest) (*RoleDeleteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RoleDelete not implemented")
 }
+func (UnimplementedAuthServiceServer) SelfUserRegister(context.Context, *SelfUserCreateRequest) (*SelfUserCreateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SelfUserRegister not implemented")
+}
+func (UnimplementedAuthServiceServer) SelfUserRead(context.Context, *SelfUserReadRequest) (*SelfUserReadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SelfUserRead not implemented")
+}
+func (UnimplementedAuthServiceServer) SelfUserUpdate(context.Context, *SelfUserUpdateRequest) (*SelfUserUpdateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SelfUserUpdate not implemented")
+}
+func (UnimplementedAuthServiceServer) SelfUserDelete(context.Context, *SelfUserDeleteRequest) (*SelfUserDeleteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SelfUserDelete not implemented")
+}
 func (UnimplementedAuthServiceServer) UserRegister(context.Context, *UserCreateRequest) (*UserCreateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserRegister not implemented")
 }
 func (UnimplementedAuthServiceServer) UserRead(context.Context, *UserReadRequest) (*UserReadResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserRead not implemented")
 }
-func (UnimplementedAuthServiceServer) UserUpdate(context.Context, *UserUpdateRequest) (*UserUpdateResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UserUpdate not implemented")
+func (UnimplementedAuthServiceServer) UserUpdateByUUID(context.Context, *UserUpdateByUUIDRequest) (*UserUpdateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UserUpdateByUUID not implemented")
+}
+func (UnimplementedAuthServiceServer) UserUpdateByUsername(context.Context, *UserUpdateByUsernameRequest) (*UserUpdateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UserUpdateByUsername not implemented")
 }
 func (UnimplementedAuthServiceServer) UserDelete(context.Context, *UserDeleteRequest) (*UserDeleteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UserDelete not implemented")
@@ -504,6 +586,78 @@ func _AuthService_RoleDelete_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AuthService_SelfUserRegister_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelfUserCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServiceServer).SelfUserRegister(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthService_SelfUserRegister_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServiceServer).SelfUserRegister(ctx, req.(*SelfUserCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AuthService_SelfUserRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelfUserReadRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServiceServer).SelfUserRead(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthService_SelfUserRead_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServiceServer).SelfUserRead(ctx, req.(*SelfUserReadRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AuthService_SelfUserUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelfUserUpdateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServiceServer).SelfUserUpdate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthService_SelfUserUpdate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServiceServer).SelfUserUpdate(ctx, req.(*SelfUserUpdateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AuthService_SelfUserDelete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SelfUserDeleteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServiceServer).SelfUserDelete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthService_SelfUserDelete_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServiceServer).SelfUserDelete(ctx, req.(*SelfUserDeleteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _AuthService_UserRegister_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserCreateRequest)
 	if err := dec(in); err != nil {
@@ -540,20 +694,38 @@ func _AuthService_UserRead_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthService_UserUpdate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UserUpdateRequest)
+func _AuthService_UserUpdateByUUID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserUpdateByUUIDRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AuthServiceServer).UserUpdate(ctx, in)
+		return srv.(AuthServiceServer).UserUpdateByUUID(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: AuthService_UserUpdate_FullMethodName,
+		FullMethod: AuthService_UserUpdateByUUID_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServiceServer).UserUpdate(ctx, req.(*UserUpdateRequest))
+		return srv.(AuthServiceServer).UserUpdateByUUID(ctx, req.(*UserUpdateByUUIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AuthService_UserUpdateByUsername_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UserUpdateByUsernameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServiceServer).UserUpdateByUsername(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AuthService_UserUpdateByUsername_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServiceServer).UserUpdateByUsername(ctx, req.(*UserUpdateByUsernameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -706,6 +878,22 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _AuthService_RoleDelete_Handler,
 		},
 		{
+			MethodName: "SelfUserRegister",
+			Handler:    _AuthService_SelfUserRegister_Handler,
+		},
+		{
+			MethodName: "SelfUserRead",
+			Handler:    _AuthService_SelfUserRead_Handler,
+		},
+		{
+			MethodName: "SelfUserUpdate",
+			Handler:    _AuthService_SelfUserUpdate_Handler,
+		},
+		{
+			MethodName: "SelfUserDelete",
+			Handler:    _AuthService_SelfUserDelete_Handler,
+		},
+		{
 			MethodName: "UserRegister",
 			Handler:    _AuthService_UserRegister_Handler,
 		},
@@ -714,8 +902,12 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _AuthService_UserRead_Handler,
 		},
 		{
-			MethodName: "UserUpdate",
-			Handler:    _AuthService_UserUpdate_Handler,
+			MethodName: "UserUpdateByUUID",
+			Handler:    _AuthService_UserUpdateByUUID_Handler,
+		},
+		{
+			MethodName: "UserUpdateByUsername",
+			Handler:    _AuthService_UserUpdateByUsername_Handler,
 		},
 		{
 			MethodName: "UserDelete",

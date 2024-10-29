@@ -20,7 +20,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type UserCreateRequest struct {
+type SelfUserCreateRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -28,20 +28,20 @@ type UserCreateRequest struct {
 	User *User `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 }
 
-func (x *UserCreateRequest) Reset() {
-	*x = UserCreateRequest{}
+func (x *SelfUserCreateRequest) Reset() {
+	*x = SelfUserCreateRequest{}
 	mi := &file_user_messages_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UserCreateRequest) String() string {
+func (x *SelfUserCreateRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UserCreateRequest) ProtoMessage() {}
+func (*SelfUserCreateRequest) ProtoMessage() {}
 
-func (x *UserCreateRequest) ProtoReflect() protoreflect.Message {
+func (x *SelfUserCreateRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_user_messages_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -53,19 +53,19 @@ func (x *UserCreateRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UserCreateRequest.ProtoReflect.Descriptor instead.
-func (*UserCreateRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use SelfUserCreateRequest.ProtoReflect.Descriptor instead.
+func (*SelfUserCreateRequest) Descriptor() ([]byte, []int) {
 	return file_user_messages_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *UserCreateRequest) GetUser() *User {
+func (x *SelfUserCreateRequest) GetUser() *User {
 	if x != nil {
 		return x.User
 	}
 	return nil
 }
 
-type UserCreateResponse struct {
+type SelfUserCreateResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -73,20 +73,20 @@ type UserCreateResponse struct {
 	Uuid *UUID `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
 }
 
-func (x *UserCreateResponse) Reset() {
-	*x = UserCreateResponse{}
+func (x *SelfUserCreateResponse) Reset() {
+	*x = SelfUserCreateResponse{}
 	mi := &file_user_messages_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UserCreateResponse) String() string {
+func (x *SelfUserCreateResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UserCreateResponse) ProtoMessage() {}
+func (*SelfUserCreateResponse) ProtoMessage() {}
 
-func (x *UserCreateResponse) ProtoReflect() protoreflect.Message {
+func (x *SelfUserCreateResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_user_messages_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -98,38 +98,38 @@ func (x *UserCreateResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UserCreateResponse.ProtoReflect.Descriptor instead.
-func (*UserCreateResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use SelfUserCreateResponse.ProtoReflect.Descriptor instead.
+func (*SelfUserCreateResponse) Descriptor() ([]byte, []int) {
 	return file_user_messages_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *UserCreateResponse) GetUuid() *UUID {
+func (x *SelfUserCreateResponse) GetUuid() *UUID {
 	if x != nil {
 		return x.Uuid
 	}
 	return nil
 }
 
-type UserReadRequest struct {
+type SelfUserReadRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 }
 
-func (x *UserReadRequest) Reset() {
-	*x = UserReadRequest{}
+func (x *SelfUserReadRequest) Reset() {
+	*x = SelfUserReadRequest{}
 	mi := &file_user_messages_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UserReadRequest) String() string {
+func (x *SelfUserReadRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UserReadRequest) ProtoMessage() {}
+func (*SelfUserReadRequest) ProtoMessage() {}
 
-func (x *UserReadRequest) ProtoReflect() protoreflect.Message {
+func (x *SelfUserReadRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_user_messages_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -141,12 +141,12 @@ func (x *UserReadRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UserReadRequest.ProtoReflect.Descriptor instead.
-func (*UserReadRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use SelfUserReadRequest.ProtoReflect.Descriptor instead.
+func (*SelfUserReadRequest) Descriptor() ([]byte, []int) {
 	return file_user_messages_proto_rawDescGZIP(), []int{2}
 }
 
-type UserReadResponse struct {
+type SelfUserReadResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -154,20 +154,20 @@ type UserReadResponse struct {
 	User *User `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
 }
 
-func (x *UserReadResponse) Reset() {
-	*x = UserReadResponse{}
+func (x *SelfUserReadResponse) Reset() {
+	*x = SelfUserReadResponse{}
 	mi := &file_user_messages_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UserReadResponse) String() string {
+func (x *SelfUserReadResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UserReadResponse) ProtoMessage() {}
+func (*SelfUserReadResponse) ProtoMessage() {}
 
-func (x *UserReadResponse) ProtoReflect() protoreflect.Message {
+func (x *SelfUserReadResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_user_messages_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -179,19 +179,19 @@ func (x *UserReadResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UserReadResponse.ProtoReflect.Descriptor instead.
-func (*UserReadResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use SelfUserReadResponse.ProtoReflect.Descriptor instead.
+func (*SelfUserReadResponse) Descriptor() ([]byte, []int) {
 	return file_user_messages_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *UserReadResponse) GetUser() *User {
+func (x *SelfUserReadResponse) GetUser() *User {
 	if x != nil {
 		return x.User
 	}
 	return nil
 }
 
-type UserUpdateRequest struct {
+type SelfUserUpdateRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -199,20 +199,20 @@ type UserUpdateRequest struct {
 	User *User `protobuf:"bytes,3,opt,name=user,proto3" json:"user,omitempty"`
 }
 
-func (x *UserUpdateRequest) Reset() {
-	*x = UserUpdateRequest{}
+func (x *SelfUserUpdateRequest) Reset() {
+	*x = SelfUserUpdateRequest{}
 	mi := &file_user_messages_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UserUpdateRequest) String() string {
+func (x *SelfUserUpdateRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UserUpdateRequest) ProtoMessage() {}
+func (*SelfUserUpdateRequest) ProtoMessage() {}
 
-func (x *UserUpdateRequest) ProtoReflect() protoreflect.Message {
+func (x *SelfUserUpdateRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_user_messages_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -224,19 +224,19 @@ func (x *UserUpdateRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UserUpdateRequest.ProtoReflect.Descriptor instead.
-func (*UserUpdateRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use SelfUserUpdateRequest.ProtoReflect.Descriptor instead.
+func (*SelfUserUpdateRequest) Descriptor() ([]byte, []int) {
 	return file_user_messages_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *UserUpdateRequest) GetUser() *User {
+func (x *SelfUserUpdateRequest) GetUser() *User {
 	if x != nil {
 		return x.User
 	}
 	return nil
 }
 
-type UserUpdateResponse struct {
+type SelfUserUpdateResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -244,20 +244,20 @@ type UserUpdateResponse struct {
 	Uuid *UUID `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
 }
 
-func (x *UserUpdateResponse) Reset() {
-	*x = UserUpdateResponse{}
+func (x *SelfUserUpdateResponse) Reset() {
+	*x = SelfUserUpdateResponse{}
 	mi := &file_user_messages_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UserUpdateResponse) String() string {
+func (x *SelfUserUpdateResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UserUpdateResponse) ProtoMessage() {}
+func (*SelfUserUpdateResponse) ProtoMessage() {}
 
-func (x *UserUpdateResponse) ProtoReflect() protoreflect.Message {
+func (x *SelfUserUpdateResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_user_messages_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -269,38 +269,38 @@ func (x *UserUpdateResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UserUpdateResponse.ProtoReflect.Descriptor instead.
-func (*UserUpdateResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use SelfUserUpdateResponse.ProtoReflect.Descriptor instead.
+func (*SelfUserUpdateResponse) Descriptor() ([]byte, []int) {
 	return file_user_messages_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *UserUpdateResponse) GetUuid() *UUID {
+func (x *SelfUserUpdateResponse) GetUuid() *UUID {
 	if x != nil {
 		return x.Uuid
 	}
 	return nil
 }
 
-type UserDeleteRequest struct {
+type SelfUserDeleteRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 }
 
-func (x *UserDeleteRequest) Reset() {
-	*x = UserDeleteRequest{}
+func (x *SelfUserDeleteRequest) Reset() {
+	*x = SelfUserDeleteRequest{}
 	mi := &file_user_messages_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UserDeleteRequest) String() string {
+func (x *SelfUserDeleteRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UserDeleteRequest) ProtoMessage() {}
+func (*SelfUserDeleteRequest) ProtoMessage() {}
 
-func (x *UserDeleteRequest) ProtoReflect() protoreflect.Message {
+func (x *SelfUserDeleteRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_user_messages_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -312,31 +312,31 @@ func (x *UserDeleteRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UserDeleteRequest.ProtoReflect.Descriptor instead.
-func (*UserDeleteRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use SelfUserDeleteRequest.ProtoReflect.Descriptor instead.
+func (*SelfUserDeleteRequest) Descriptor() ([]byte, []int) {
 	return file_user_messages_proto_rawDescGZIP(), []int{6}
 }
 
-type UserDeleteResponse struct {
+type SelfUserDeleteResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 }
 
-func (x *UserDeleteResponse) Reset() {
-	*x = UserDeleteResponse{}
+func (x *SelfUserDeleteResponse) Reset() {
+	*x = SelfUserDeleteResponse{}
 	mi := &file_user_messages_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *UserDeleteResponse) String() string {
+func (x *SelfUserDeleteResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UserDeleteResponse) ProtoMessage() {}
+func (*SelfUserDeleteResponse) ProtoMessage() {}
 
-func (x *UserDeleteResponse) ProtoReflect() protoreflect.Message {
+func (x *SelfUserDeleteResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_user_messages_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -348,8 +348,8 @@ func (x *UserDeleteResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UserDeleteResponse.ProtoReflect.Descriptor instead.
-func (*UserDeleteResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use SelfUserDeleteResponse.ProtoReflect.Descriptor instead.
+func (*SelfUserDeleteResponse) Descriptor() ([]byte, []int) {
 	return file_user_messages_proto_rawDescGZIP(), []int{7}
 }
 
@@ -808,34 +808,448 @@ func (x *RefreshTokenResponse) GetToken() string {
 	return ""
 }
 
+type UserCreateRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	User *User `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+}
+
+func (x *UserCreateRequest) Reset() {
+	*x = UserCreateRequest{}
+	mi := &file_user_messages_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserCreateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserCreateRequest) ProtoMessage() {}
+
+func (x *UserCreateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_user_messages_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserCreateRequest.ProtoReflect.Descriptor instead.
+func (*UserCreateRequest) Descriptor() ([]byte, []int) {
+	return file_user_messages_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *UserCreateRequest) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+type UserCreateResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Uuid *UUID `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
+}
+
+func (x *UserCreateResponse) Reset() {
+	*x = UserCreateResponse{}
+	mi := &file_user_messages_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserCreateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserCreateResponse) ProtoMessage() {}
+
+func (x *UserCreateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_user_messages_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserCreateResponse.ProtoReflect.Descriptor instead.
+func (*UserCreateResponse) Descriptor() ([]byte, []int) {
+	return file_user_messages_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *UserCreateResponse) GetUuid() *UUID {
+	if x != nil {
+		return x.Uuid
+	}
+	return nil
+}
+
+type UserReadRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	User *User `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+}
+
+func (x *UserReadRequest) Reset() {
+	*x = UserReadRequest{}
+	mi := &file_user_messages_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserReadRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserReadRequest) ProtoMessage() {}
+
+func (x *UserReadRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_user_messages_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserReadRequest.ProtoReflect.Descriptor instead.
+func (*UserReadRequest) Descriptor() ([]byte, []int) {
+	return file_user_messages_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *UserReadRequest) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+type UserReadResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	User *User `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+}
+
+func (x *UserReadResponse) Reset() {
+	*x = UserReadResponse{}
+	mi := &file_user_messages_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserReadResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserReadResponse) ProtoMessage() {}
+
+func (x *UserReadResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_user_messages_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserReadResponse.ProtoReflect.Descriptor instead.
+func (*UserReadResponse) Descriptor() ([]byte, []int) {
+	return file_user_messages_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *UserReadResponse) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+type UserUpdateByUUIDRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Uuid *UUID `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
+	User *User `protobuf:"bytes,2,opt,name=user,proto3" json:"user,omitempty"`
+}
+
+func (x *UserUpdateByUUIDRequest) Reset() {
+	*x = UserUpdateByUUIDRequest{}
+	mi := &file_user_messages_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserUpdateByUUIDRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserUpdateByUUIDRequest) ProtoMessage() {}
+
+func (x *UserUpdateByUUIDRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_user_messages_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserUpdateByUUIDRequest.ProtoReflect.Descriptor instead.
+func (*UserUpdateByUUIDRequest) Descriptor() ([]byte, []int) {
+	return file_user_messages_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *UserUpdateByUUIDRequest) GetUuid() *UUID {
+	if x != nil {
+		return x.Uuid
+	}
+	return nil
+}
+
+func (x *UserUpdateByUUIDRequest) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+type UserUpdateByUsernameRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Username string `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
+	User     *User  `protobuf:"bytes,2,opt,name=user,proto3" json:"user,omitempty"`
+}
+
+func (x *UserUpdateByUsernameRequest) Reset() {
+	*x = UserUpdateByUsernameRequest{}
+	mi := &file_user_messages_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserUpdateByUsernameRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserUpdateByUsernameRequest) ProtoMessage() {}
+
+func (x *UserUpdateByUsernameRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_user_messages_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserUpdateByUsernameRequest.ProtoReflect.Descriptor instead.
+func (*UserUpdateByUsernameRequest) Descriptor() ([]byte, []int) {
+	return file_user_messages_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *UserUpdateByUsernameRequest) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *UserUpdateByUsernameRequest) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+type UserUpdateResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Uuid *UUID `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
+}
+
+func (x *UserUpdateResponse) Reset() {
+	*x = UserUpdateResponse{}
+	mi := &file_user_messages_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserUpdateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserUpdateResponse) ProtoMessage() {}
+
+func (x *UserUpdateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_user_messages_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserUpdateResponse.ProtoReflect.Descriptor instead.
+func (*UserUpdateResponse) Descriptor() ([]byte, []int) {
+	return file_user_messages_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *UserUpdateResponse) GetUuid() *UUID {
+	if x != nil {
+		return x.Uuid
+	}
+	return nil
+}
+
+type UserDeleteRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	User *User `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+}
+
+func (x *UserDeleteRequest) Reset() {
+	*x = UserDeleteRequest{}
+	mi := &file_user_messages_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserDeleteRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserDeleteRequest) ProtoMessage() {}
+
+func (x *UserDeleteRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_user_messages_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserDeleteRequest.ProtoReflect.Descriptor instead.
+func (*UserDeleteRequest) Descriptor() ([]byte, []int) {
+	return file_user_messages_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *UserDeleteRequest) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+type UserDeleteResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *UserDeleteResponse) Reset() {
+	*x = UserDeleteResponse{}
+	mi := &file_user_messages_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UserDeleteResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UserDeleteResponse) ProtoMessage() {}
+
+func (x *UserDeleteResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_user_messages_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UserDeleteResponse.ProtoReflect.Descriptor instead.
+func (*UserDeleteResponse) Descriptor() ([]byte, []int) {
+	return file_user_messages_proto_rawDescGZIP(), []int{26}
+}
+
 var File_user_messages_proto protoreflect.FileDescriptor
 
 var file_user_messages_proto_rawDesc = []byte{
 	0x0a, 0x13, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x2e,
 	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0b, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69,
 	0x63, 0x65, 0x1a, 0x11, 0x61, 0x75, 0x74, 0x68, 0x5f, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x3a, 0x0a, 0x11, 0x55, 0x73, 0x65, 0x72, 0x43, 0x72, 0x65,
-	0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x25, 0x0a, 0x04, 0x75, 0x73,
-	0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x52, 0x04, 0x75, 0x73, 0x65,
-	0x72, 0x22, 0x3b, 0x0a, 0x12, 0x55, 0x73, 0x65, 0x72, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x25, 0x0a, 0x04, 0x75, 0x75, 0x69, 0x64, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x2e, 0x55, 0x55, 0x49, 0x44, 0x52, 0x04, 0x75, 0x75, 0x69, 0x64, 0x22, 0x11,
-	0x0a, 0x0f, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x61, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x22, 0x39, 0x0a, 0x10, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x61, 0x64, 0x52, 0x65, 0x73,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x3e, 0x0a, 0x15, 0x53, 0x65, 0x6c, 0x66, 0x55, 0x73, 0x65,
+	0x72, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x25,
+	0x0a, 0x04, 0x75, 0x73, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x61,
+	0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x52,
+	0x04, 0x75, 0x73, 0x65, 0x72, 0x22, 0x3f, 0x0a, 0x16, 0x53, 0x65, 0x6c, 0x66, 0x55, 0x73, 0x65,
+	0x72, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x25, 0x0a, 0x04, 0x75, 0x75, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e,
+	0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x55, 0x49, 0x44,
+	0x52, 0x04, 0x75, 0x75, 0x69, 0x64, 0x22, 0x15, 0x0a, 0x13, 0x53, 0x65, 0x6c, 0x66, 0x55, 0x73,
+	0x65, 0x72, 0x52, 0x65, 0x61, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x3d, 0x0a,
+	0x14, 0x53, 0x65, 0x6c, 0x66, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x61, 0x64, 0x52, 0x65, 0x73,
 	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x25, 0x0a, 0x04, 0x75, 0x73, 0x65, 0x72, 0x18, 0x01, 0x20,
 	0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x52, 0x04, 0x75, 0x73, 0x65, 0x72, 0x22, 0x3a, 0x0a, 0x11,
-	0x55, 0x73, 0x65, 0x72, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x12, 0x25, 0x0a, 0x04, 0x75, 0x73, 0x65, 0x72, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0b, 0x32,
-	0x11, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x73,
-	0x65, 0x72, 0x52, 0x04, 0x75, 0x73, 0x65, 0x72, 0x22, 0x3b, 0x0a, 0x12, 0x55, 0x73, 0x65, 0x72,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x25,
-	0x0a, 0x04, 0x75, 0x75, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x61,
-	0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x55, 0x49, 0x44, 0x52,
-	0x04, 0x75, 0x75, 0x69, 0x64, 0x22, 0x13, 0x0a, 0x11, 0x55, 0x73, 0x65, 0x72, 0x44, 0x65, 0x6c,
-	0x65, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x14, 0x0a, 0x12, 0x55, 0x73,
+	0x65, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x52, 0x04, 0x75, 0x73, 0x65, 0x72, 0x22, 0x3e, 0x0a, 0x15,
+	0x53, 0x65, 0x6c, 0x66, 0x55, 0x73, 0x65, 0x72, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x25, 0x0a, 0x04, 0x75, 0x73, 0x65, 0x72, 0x18, 0x03, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x52, 0x04, 0x75, 0x73, 0x65, 0x72, 0x22, 0x3f, 0x0a, 0x16,
+	0x53, 0x65, 0x6c, 0x66, 0x55, 0x73, 0x65, 0x72, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x25, 0x0a, 0x04, 0x75, 0x75, 0x69, 0x64, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x2e, 0x55, 0x55, 0x49, 0x44, 0x52, 0x04, 0x75, 0x75, 0x69, 0x64, 0x22, 0x17, 0x0a,
+	0x15, 0x53, 0x65, 0x6c, 0x66, 0x55, 0x73, 0x65, 0x72, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x18, 0x0a, 0x16, 0x53, 0x65, 0x6c, 0x66, 0x55, 0x73,
 	0x65, 0x72, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
 	0x22, 0x4a, 0x0a, 0x10, 0x55, 0x73, 0x65, 0x72, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x52, 0x65, 0x71,
 	0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65,
@@ -872,10 +1286,46 @@ var file_user_messages_proto_rawDesc = []byte{
 	0x23, 0x0a, 0x0d, 0x72, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x5f, 0x74, 0x6f, 0x6b, 0x65, 0x6e,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x72, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x54,
 	0x6f, 0x6b, 0x65, 0x6e, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x42, 0x22, 0x5a, 0x20, 0x61, 0x70,
-	0x70, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x76, 0x31,
-	0x3b, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x76, 0x31, 0x62, 0x06,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x22, 0x3a, 0x0a, 0x11, 0x55, 0x73,
+	0x65, 0x72, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x25, 0x0a, 0x04, 0x75, 0x73, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e,
+	0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x73, 0x65, 0x72,
+	0x52, 0x04, 0x75, 0x73, 0x65, 0x72, 0x22, 0x3b, 0x0a, 0x12, 0x55, 0x73, 0x65, 0x72, 0x43, 0x72,
+	0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x25, 0x0a, 0x04,
+	0x75, 0x75, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x61, 0x75, 0x74,
+	0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x55, 0x49, 0x44, 0x52, 0x04, 0x75,
+	0x75, 0x69, 0x64, 0x22, 0x38, 0x0a, 0x0f, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x61, 0x64, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x25, 0x0a, 0x04, 0x75, 0x73, 0x65, 0x72, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x52, 0x04, 0x75, 0x73, 0x65, 0x72, 0x22, 0x39, 0x0a,
+	0x10, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x61, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x25, 0x0a, 0x04, 0x75, 0x73, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
+	0x11, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x73,
+	0x65, 0x72, 0x52, 0x04, 0x75, 0x73, 0x65, 0x72, 0x22, 0x67, 0x0a, 0x17, 0x55, 0x73, 0x65, 0x72,
+	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x42, 0x79, 0x55, 0x55, 0x49, 0x44, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x12, 0x25, 0x0a, 0x04, 0x75, 0x75, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x11, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e,
+	0x55, 0x55, 0x49, 0x44, 0x52, 0x04, 0x75, 0x75, 0x69, 0x64, 0x12, 0x25, 0x0a, 0x04, 0x75, 0x73,
+	0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x52, 0x04, 0x75, 0x73, 0x65,
+	0x72, 0x22, 0x60, 0x0a, 0x1b, 0x55, 0x73, 0x65, 0x72, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x42,
+	0x79, 0x55, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x1a, 0x0a, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x08, 0x75, 0x73, 0x65, 0x72, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x25, 0x0a, 0x04,
+	0x75, 0x73, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x61, 0x75, 0x74,
+	0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x52, 0x04, 0x75,
+	0x73, 0x65, 0x72, 0x22, 0x3b, 0x0a, 0x12, 0x55, 0x73, 0x65, 0x72, 0x55, 0x70, 0x64, 0x61, 0x74,
+	0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x25, 0x0a, 0x04, 0x75, 0x75, 0x69,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x55, 0x49, 0x44, 0x52, 0x04, 0x75, 0x75, 0x69, 0x64,
+	0x22, 0x3a, 0x0a, 0x11, 0x55, 0x73, 0x65, 0x72, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x25, 0x0a, 0x04, 0x75, 0x73, 0x65, 0x72, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x52, 0x04, 0x75, 0x73, 0x65, 0x72, 0x22, 0x14, 0x0a, 0x12,
+	0x55, 0x73, 0x65, 0x72, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x42, 0x22, 0x5a, 0x20, 0x61, 0x70, 0x70, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x76, 0x31, 0x3b, 0x61, 0x75, 0x74, 0x68, 0x73, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -890,41 +1340,59 @@ func file_user_messages_proto_rawDescGZIP() []byte {
 	return file_user_messages_proto_rawDescData
 }
 
-var file_user_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
+var file_user_messages_proto_msgTypes = make([]protoimpl.MessageInfo, 27)
 var file_user_messages_proto_goTypes = []any{
-	(*UserCreateRequest)(nil),       // 0: authservice.UserCreateRequest
-	(*UserCreateResponse)(nil),      // 1: authservice.UserCreateResponse
-	(*UserReadRequest)(nil),         // 2: authservice.UserReadRequest
-	(*UserReadResponse)(nil),        // 3: authservice.UserReadResponse
-	(*UserUpdateRequest)(nil),       // 4: authservice.UserUpdateRequest
-	(*UserUpdateResponse)(nil),      // 5: authservice.UserUpdateResponse
-	(*UserDeleteRequest)(nil),       // 6: authservice.UserDeleteRequest
-	(*UserDeleteResponse)(nil),      // 7: authservice.UserDeleteResponse
-	(*UserLoginRequest)(nil),        // 8: authservice.UserLoginRequest
-	(*UserLoginResponse)(nil),       // 9: authservice.UserLoginResponse
-	(*UserLogoutRequest)(nil),       // 10: authservice.UserLogoutRequest
-	(*UserLogoutResponse)(nil),      // 11: authservice.UserLogoutResponse
-	(*ValidateTokenRequest)(nil),    // 12: authservice.ValidateTokenRequest
-	(*ValidateTokenResponse)(nil),   // 13: authservice.ValidateTokenResponse
-	(*RSA256PublicKeyRequest)(nil),  // 14: authservice.RSA256PublicKeyRequest
-	(*RSA256PublicKeyResponse)(nil), // 15: authservice.RSA256PublicKeyResponse
-	(*RefreshTokenRequest)(nil),     // 16: authservice.RefreshTokenRequest
-	(*RefreshTokenResponse)(nil),    // 17: authservice.RefreshTokenResponse
-	(*User)(nil),                    // 18: authservice.User
-	(*UUID)(nil),                    // 19: authservice.UUID
+	(*SelfUserCreateRequest)(nil),       // 0: authservice.SelfUserCreateRequest
+	(*SelfUserCreateResponse)(nil),      // 1: authservice.SelfUserCreateResponse
+	(*SelfUserReadRequest)(nil),         // 2: authservice.SelfUserReadRequest
+	(*SelfUserReadResponse)(nil),        // 3: authservice.SelfUserReadResponse
+	(*SelfUserUpdateRequest)(nil),       // 4: authservice.SelfUserUpdateRequest
+	(*SelfUserUpdateResponse)(nil),      // 5: authservice.SelfUserUpdateResponse
+	(*SelfUserDeleteRequest)(nil),       // 6: authservice.SelfUserDeleteRequest
+	(*SelfUserDeleteResponse)(nil),      // 7: authservice.SelfUserDeleteResponse
+	(*UserLoginRequest)(nil),            // 8: authservice.UserLoginRequest
+	(*UserLoginResponse)(nil),           // 9: authservice.UserLoginResponse
+	(*UserLogoutRequest)(nil),           // 10: authservice.UserLogoutRequest
+	(*UserLogoutResponse)(nil),          // 11: authservice.UserLogoutResponse
+	(*ValidateTokenRequest)(nil),        // 12: authservice.ValidateTokenRequest
+	(*ValidateTokenResponse)(nil),       // 13: authservice.ValidateTokenResponse
+	(*RSA256PublicKeyRequest)(nil),      // 14: authservice.RSA256PublicKeyRequest
+	(*RSA256PublicKeyResponse)(nil),     // 15: authservice.RSA256PublicKeyResponse
+	(*RefreshTokenRequest)(nil),         // 16: authservice.RefreshTokenRequest
+	(*RefreshTokenResponse)(nil),        // 17: authservice.RefreshTokenResponse
+	(*UserCreateRequest)(nil),           // 18: authservice.UserCreateRequest
+	(*UserCreateResponse)(nil),          // 19: authservice.UserCreateResponse
+	(*UserReadRequest)(nil),             // 20: authservice.UserReadRequest
+	(*UserReadResponse)(nil),            // 21: authservice.UserReadResponse
+	(*UserUpdateByUUIDRequest)(nil),     // 22: authservice.UserUpdateByUUIDRequest
+	(*UserUpdateByUsernameRequest)(nil), // 23: authservice.UserUpdateByUsernameRequest
+	(*UserUpdateResponse)(nil),          // 24: authservice.UserUpdateResponse
+	(*UserDeleteRequest)(nil),           // 25: authservice.UserDeleteRequest
+	(*UserDeleteResponse)(nil),          // 26: authservice.UserDeleteResponse
+	(*User)(nil),                        // 27: authservice.User
+	(*UUID)(nil),                        // 28: authservice.UUID
 }
 var file_user_messages_proto_depIdxs = []int32{
-	18, // 0: authservice.UserCreateRequest.user:type_name -> authservice.User
-	19, // 1: authservice.UserCreateResponse.uuid:type_name -> authservice.UUID
-	18, // 2: authservice.UserReadResponse.user:type_name -> authservice.User
-	18, // 3: authservice.UserUpdateRequest.user:type_name -> authservice.User
-	19, // 4: authservice.UserUpdateResponse.uuid:type_name -> authservice.UUID
-	3,  // 5: authservice.ValidateTokenResponse.user:type_name -> authservice.UserReadResponse
-	6,  // [6:6] is the sub-list for method output_type
-	6,  // [6:6] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+	27, // 0: authservice.SelfUserCreateRequest.user:type_name -> authservice.User
+	28, // 1: authservice.SelfUserCreateResponse.uuid:type_name -> authservice.UUID
+	27, // 2: authservice.SelfUserReadResponse.user:type_name -> authservice.User
+	27, // 3: authservice.SelfUserUpdateRequest.user:type_name -> authservice.User
+	28, // 4: authservice.SelfUserUpdateResponse.uuid:type_name -> authservice.UUID
+	21, // 5: authservice.ValidateTokenResponse.user:type_name -> authservice.UserReadResponse
+	27, // 6: authservice.UserCreateRequest.user:type_name -> authservice.User
+	28, // 7: authservice.UserCreateResponse.uuid:type_name -> authservice.UUID
+	27, // 8: authservice.UserReadRequest.user:type_name -> authservice.User
+	27, // 9: authservice.UserReadResponse.user:type_name -> authservice.User
+	28, // 10: authservice.UserUpdateByUUIDRequest.uuid:type_name -> authservice.UUID
+	27, // 11: authservice.UserUpdateByUUIDRequest.user:type_name -> authservice.User
+	27, // 12: authservice.UserUpdateByUsernameRequest.user:type_name -> authservice.User
+	28, // 13: authservice.UserUpdateResponse.uuid:type_name -> authservice.UUID
+	27, // 14: authservice.UserDeleteRequest.user:type_name -> authservice.User
+	15, // [15:15] is the sub-list for method output_type
+	15, // [15:15] is the sub-list for method input_type
+	15, // [15:15] is the sub-list for extension type_name
+	15, // [15:15] is the sub-list for extension extendee
+	0,  // [0:15] is the sub-list for field type_name
 }
 
 func init() { file_user_messages_proto_init() }
@@ -939,7 +1407,7 @@ func file_user_messages_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_user_messages_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   18,
+			NumMessages:   27,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
